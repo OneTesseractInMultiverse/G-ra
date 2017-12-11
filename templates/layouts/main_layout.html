@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="shortcut icon" type="image/png" href="/imgs/favicon.png" /> -->
+
+        <title>THRIVE</title>
+
+        <!-- STYLES -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" integrity="sha384-G3G7OsJCbOk1USkOY4RfeX1z27YaWrZ1YuaQ5tbuawed9IoreRDpWpTkZLXQfPm3" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/thrive.css') }}">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='lib/rickshaw/rickshaw.min.css') }}">
+        <script type="application/javascript" src="{{ url_for('static', filename='js/modernizr-custom.js') }}"></script>
+
+    </head>
+    <body>
+    <!-- START -->
+    <div id="ui" class="ui">
+
+        <!--header start-->
+        <header id="header" class="ui-header ui-header--green text-white">
+
+            <div class="navbar-header">
+                <!--logo start-->
+                <a href="index.html" class="navbar-brand">
+                    <!--
+                    <span class="logo"><img src="imgs/logo-dark.png" alt=""/></span>
+                    <span class="logo-compact"><img src="imgs/logo-icon-dark.png" alt=""/></span>
+                    -->
+                    <span class="logo"><strong>T H R I V E </strong>| L E A R N</span>
+                </a>
+                <!--logo end-->
+            </div>
+
+            <div class="search-dropdown dropdown pull-right visible-xs">
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-search"></i></button>
+                <div class="dropdown-menu">
+                    <form >
+                        <input class="form-control" placeholder="Search here..." type="text">
+                    </form>
+                </div>
+            </div>
+
+            <div class="navbar-collapse nav-responsive-disabled">
+
+                <!--toggle buttons start-->
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="toggle-btn" data-toggle="ui-nav" href="">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- toggle buttons end -->
+
+
+                <!--notification start-->
+                <ul class="nav navbar-nav navbar-right">
+
+                    {% if current_user.is_authenticated %}
+                    <li class="dropdown dropdown-usermenu">
+                        <a href="#" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                            <div class="user-avatar"><img src="{{ url_for('static', filename='img/a0.jpg') }}" alt="usr"></div>
+                            <span class="hidden-sm hidden-xs">Bienvenido(a) {{ current_user.name }}!</span>
+                            <!--<i class="fa fa-angle-down"></i>-->
+                            <span class="caret hidden-sm hidden-xs"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="#"><i class="fa fa-cogs"></i>  Configuración</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i>  Perfil</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{ url_for('logout') }}"><i class="fa fa-sign-out"></i> Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                    {% endif %}
+
+
+                    <li>
+                        <a data-toggle="ui-aside-right" href=""><i class="glyphicon glyphicon-option-vertical"></i></a>
+                    </li>
+                </ul>
+                <!--notification end-->
+
+            </div>
+
+        </header>
+        <!--header end-->
+
+        <!--sidebar start-->
+        <aside id="aside" class="ui-aside ui-aside--dark">
+            <ul class="nav" ui-nav>
+
+                <li>
+                    <a href="{{ url_for('get_dashboard_root') }}"><i class="fa fa-home"></i><span> Principal </span></a>
+                    <ul class="nav nav-sub">
+                        <li class="nav-sub-header"><a href="#"><span>Principal</span></a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href=""><i class="fa fa-user-o"></i><span>Estudiantes</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <ul class="nav nav-sub">
+                        <li class="nav-sub-header"><a href=""><span>Gestión de Estudiantes</span></a></li>
+                        <li><a href="{{ url_for('post_add_student') }}"><span>Agregar Estudiante</span></a></li>
+                        <li><a href="{{ url_for('get_find_students') }}"><span>Buscar</span></a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href=""><i class="fa fa-book" aria-hidden="true"></i><span>Cursos</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <ul class="nav nav-sub">
+                        <li class="nav-sub-header"><a href=""><span>Gestión de Cursos</span></a></li>
+                        <li><a href="#"><span>Agregar Curso</span></a></li>
+                        <li><a href="#"><span>Buscar</span></a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </aside>
+        <!--sidebar end-->
+
+        <!--main content start-->
+        <div id="content" class="ui-content ui-content-aside-overlay">
+            <div class="ui-content-body">
+                {% block body %}
+
+                {% endblock %}
+            </div>
+        </div>
+        <!--main content ends-->
+
+    </div>
+    <!-- ENDS -->
+
+    <!-- ===================================== SCRIPTS =================================== -->
+    <!-- inject:js -->
+    <script src="{{ url_for('static', filename='lib/jquery/dist/jquery.min.js') }}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='lib/jquery.nicescroll/dist/jquery.nicescroll.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/autosize/dist/autosize.min.js') }}"></script>
+    <!-- endinject -->
+
+    <!-- {{ url_for('static', filename='lib/') }} -->
+
+    <!--highcharts-->
+    <!--
+    <script src="{{ url_for('static', filename='lib/highcharts/highcharts.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/highcharts/modules/exporting.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/init-highcharts.js') }}"></script>
+    -->
+
+    <!--sparkline-->
+    <script src="{{ url_for('static', filename='lib/bower-jquery-sparkline/dist/jquery.sparkline.retina.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/init-sparkline.js') }}"></script>
+
+    <!-- Rickshaw Chart Depencencies -->
+    <script src="{{ url_for('static', filename='lib/rickshaw/vendor/d3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/rickshaw/vendor/d3.layout.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/rickshaw/rickshaw.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/init-rickshaw.js') }}"></script>
+
+
+    <!-- Common Script   -->
+    <script src="{{ url_for('static', filename='js/thrive/main.js') }} "></script>
+    {% block js %}
+
+    {% endblock %}
+    </body>
+</html>

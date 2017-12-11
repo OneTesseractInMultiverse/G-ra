@@ -1,0 +1,40 @@
+{% extends "layouts/external_layout.html" %}
+{% block body %}
+
+    <div class="sign-in-wrapper">
+            <div class="sign-container">
+                <div class="text-center">
+                    <h2 class="logo"><img src="{{ url_for('static', filename='img/thrive.png') }}" width="130px" alt=""/></h2>
+                    <h4>T H R I V E | Education</h4>
+                </div>
+
+                <form class="sign-in-form" role="form" method="post">
+
+                    {% if error%}
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>Error</strong> {{ error }}
+                        </div>
+                    {% endif %}
+
+                    <div class="form-group">
+                        <input name="username" type="text" class="form-control" placeholder="Usuario" required="El usuario es un campo requerido">
+                    </div>
+                    <div class="form-group">
+                        <input name="password" type="password" class="form-control" placeholder="Contraseña" required="La contraseña es un campo requerido">
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="checkbox"> Recordar mis datos
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+                    <div class="text-center help-block">
+                        <a href="forgot-password.html"><small>Olvidó su contraseña?</small></a>
+                    </div>
+                </form>
+                <div class="text-center copyright-txt">
+                    <small>MIT Software License</small>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
