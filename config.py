@@ -26,9 +26,9 @@ MONGODB_PASSWORD = 'Wstinol123.'
 # ----------------------------------------------------------------
 # NEO4J DATABASE CONFIGURATION
 # ----------------------------------------------------------------
-NEO4J_SERVER = "subverticgraph.centralus.cloudapp.azure.com:7687"
-NEO4J_USERNAME = 'neo4j'
-NEO4J_PASSWORD = 'Awsx1Sedc2Drfv34'
+NEO4J_SERVER = "hobby-nfambjifjhecgbkegfhggjal.dbs.graphenedb.com:24786"
+NEO4J_USERNAME = 'gora'
+NEO4J_PASSWORD = 'b.d8zPYuJPq8Tw.TF0PE2Dj5xjOX6ez'
 DATABASE_URL = "bolt://" + NEO4J_USERNAME + ":" + NEO4J_PASSWORD + "@" + NEO4J_SERVER
 
 

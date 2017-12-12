@@ -4,8 +4,8 @@
     <div class="sign-in-wrapper">
             <div class="sign-container">
                 <div class="text-center">
-                    <h2 class="logo"><img src="{{ url_for('static', filename='img/gora.png') }}" width="130px" alt=""/></h2>
-                    <h4>T H R I V E | Education</h4>
+                    <h2 class="logo"><img src="{{ url_for('static', filename='img/logo.png') }}" width="130px" alt=""/></h2>
+                    <h4>G Ö R A | Band</h4>
                 </div>
 
                 <form class="sign-in-form" role="form" method="post">
@@ -16,23 +16,24 @@
                             <strong>Error</strong> {{ error }}
                         </div>
                     {% endif %}
-
+                    
                     <div class="form-group">
-                        <input name="username" type="text" class="form-control" placeholder="Usuario" required="El usuario es un campo requerido">
+                        <input name="username" type="text" class="form-control" placeholder="Username" required="You must provide a username">
                     </div>
                     <div class="form-group">
-                        <input name="password" type="password" class="form-control" placeholder="Contraseña" required="La contraseña es un campo requerido">
+                        <input name="password" type="password" class="form-control" placeholder="Password" required="You must provide a valid password">
                     </div>
                     <div class="form-group text-center">
-                        <input type="checkbox"> Recordar mis datos
+                        <input type="checkbox"> Remember me
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <a href="{{url_for("get_account_signup")}}" class="btn btn-success btn-block">Sign Up</a>
                     <div class="text-center help-block">
-                        <a href="forgot-password.html"><small>Olvidó su contraseña?</small></a>
+                        <a href="forgot-password.html"><small>Forgot your password?</small></a>
                     </div>
                 </form>
                 <div class="text-center copyright-txt">
-                    <small>MIT Software License</small>
+                    <small>Copyright &copy; 2017 Pedro Guzmán</small>
                 </div>
             </div>
         </div>
