@@ -1,0 +1,102 @@
+
+{% extends "layouts/main_layout.html" %}
+{% block body %}
+
+    <div class="ui-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel">
+                    <header class="panel-heading">
+                        <h2>Register Band</h2>
+                        <span class="tools pull-right">
+                            <a class="collapse-box fa fa-chevron-down" href="javascript:;"></a>
+                        </span>
+                    </header>
+                    <div class="panel-body">
+
+                        {% if err %}
+                            <div class="alert alert-danger alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>Error!</strong> {{ err }}
+                            </div>
+                        {% endif %}
+
+                        <!-- FORM BEGINS -->
+                        <form class="form-horizontal form-variance" role="form" method="post">
+
+                            <div class="form-group">
+                                <label for="name" class="col-sm-3 control-label">Band Name</label>
+                                <div class="col-sm-6">
+                                    <input name="name" class="form-control" id="name" placeholder="Band's Name" type="text" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="last-name" class="col-sm-3 control-label">Genres</label>
+                                <div class="col-sm-6">
+                                    <input name="genres" class="form-control" id="genres" placeholder="Genres" type="text" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="second-last-name" class="col-sm-3 control-label">Logo Url</label>
+                                <div class="col-sm-6">
+                                    <input name="logo" class="form-control" id="logo" placeholder="Logo Url" type="text" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label col-lg-3" >Founded</label>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <input name="day" class="form-control" placeholder="Day" type="number" step="1" min="1" max="31" required>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <select name="month" class="form-control" required>
+                                                <option>Select</option>
+                                                <option value="1">January</option>
+                                                <option value="2">February</option>
+                                                <option value="3">March</option>
+                                                <option value="4">April</option>
+                                                <option value="5">May</option>
+                                                <option value="6">June</option>
+                                                <option value="7">July</option>
+                                                <option value="8">August</option>
+                                                <option value="9">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <input name="year" class="form-control" placeholder="Year" type="number" step="1" min="1900" max="2100" required>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                             <div class="form-group">
+                                <label for="description" class="col-sm-3 control-label">Description</label>
+                                <div class="col-sm-6">
+                                    <textarea name="description" class="form-control" id="description" placeholder="Description"></textarea>
+                                </div>
+                            </div>
+                            
+
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </form>
+                        <!-- FORM ENDS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+
+
+{% endblock %}

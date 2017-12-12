@@ -151,6 +151,24 @@ class Band(StructuredNode):
     members = RelationshipTo('User', 'HAS_MEMBER')
     rehearsals = RelationshipTo('Rehearsal', 'HAS_SCHEDULED')
     
+    def set_founded(self, day, month, year):
+        """
+            Sets the date object in Student class
+            
+            :param day: The day
+            :param month: The month
+            :param year: The year
+            :return: True if well formatted and valid date provided. False if not.
+            
+        """
+        try:
+            self.founded = date(int(year), int(month), int(day))
+            return True
+        except Exception as ex:
+            # TODO good exception handling!!!
+            print(ex)
+            return False
+    
 # ------------------------------------------------------------------------------
 # CLASS BAND
 # ------------------------------------------------------------------------------       
