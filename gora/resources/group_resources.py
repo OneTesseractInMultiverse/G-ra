@@ -1,7 +1,7 @@
 import uuid
-from thrive import app
-from thrive.models.graph import Group
-from thrive.security.iam import (
+from gora import app
+from gora.models.graph import Group
+from gora.security.iam import (
     create_group,
     sys_add_user_to_group,
     find_group

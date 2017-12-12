@@ -1,5 +1,5 @@
-from thrive import app
-from thrive.models.stats import (
+from gora import app
+from gora.models.stats import (
     count_total_students,
     count_total_active_students,
     count_total_teachers,

@@ -1,4 +1,4 @@
-from thrive.models.graph import (
+from gora.models.graph import (
     User,
     Group,
     Student,

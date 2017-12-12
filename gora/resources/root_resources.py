@@ -1,4 +1,4 @@
-from thrive import app
+from gora import app
 from flask import jsonify, request
 
 

@@ -7,7 +7,7 @@ User=[your_user]
 Group=www-data
 WorkingDirectory=/home/[your_user]/apps/garnet
 Environment="PATH=/home/[your_user]/apps/garnet/bin"
-ExecStart=/home/[your_user]/apps/garnet/bin/uwsgi --ini garnet.ini
+ExecStart=/home/[your_user]/apps/garnet/bin/uwsgi --ini gora.ini
 
 [Install]
 WantedBy=multi-user.target

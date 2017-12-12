@@ -2,8 +2,8 @@ from flask import render_template, redirect, url_for
 from flask import request, session
 from flask_login import login_user, logout_user, login_required
 
-from thrive import app, login_manager
-from thrive.security.iam import get_user_by_username
+from gora import app, login_manager
+from gora.security.iam import get_user_by_username
 
 
 @login_manager.unauthorized_handler

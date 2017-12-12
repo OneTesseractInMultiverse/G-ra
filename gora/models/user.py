@@ -6,7 +6,7 @@ from mongoengine import *
 from werkzeug.security import safe_str_cmp
 from nacl.pwhash import verify_scryptsalsa208sha256
 
-from thrive import app, login_manager
+from gora import app, login_manager
 
 
 # ------------------------------------------------------------------------------

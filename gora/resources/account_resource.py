@@ -1,8 +1,8 @@
 import sys
 
 from flask import jsonify, request
-from thrive import app
-from thrive.security.iam import create_user, get_user_by_username
+from gora import app
+from gora.security.iam import create_user, get_user_by_username
 
 
 # --------------------------------------------------------------------------

@@ -2,8 +2,8 @@ import uuid
 from functools import wraps
 from flask import render_template
 from flask_login import current_user
-from thrive import login_manager, app
-from thrive.models.graph import User, Group
+from gora import login_manager, app
+from gora.models.graph import User, Group
 
 """
     This module contains helper functions that perform operations related to 

@@ -91,5 +91,5 @@ jwt = JWTManager(app)
 # ------------------------------------------------------------------------------
 # LOAD ENDPOINTS
 # ------------------------------------------------------------------------------
-from thrive.resources import *
-from thrive.controllers import *
+from gora.resources import *
+from gora.controllers import *

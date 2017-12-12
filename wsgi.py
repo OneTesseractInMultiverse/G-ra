@@ -1,4 +1,4 @@
-from thrive import app
+from gora import app
 
 if __name__ == "__main__":
     app.run()
