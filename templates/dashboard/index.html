@@ -37,23 +37,28 @@
                 </header>
                 <div class="">
                     
-                    <ul class="Notification-list list-group">
-    
-                        <!--
-                        <li class="Notification list-group-item">
-                            <button class="Notification__status Notification__status--read" type="button" name="button"></button>
-                            <a href="javaScritp:;">
-                                <div class="Notification__avatar pull-left" >
-                                    <img src="imgs/a0.jpg" alt="...">
-                                </div>
-                                <div class="Notification__highlight">
-                                    <p class="Notification__highlight-excerpt"><b>Jonathan Smith</b> and 4 other people like your post “Awesome Bootstrap dashbord”.</p>
-                                    <p class="Notification__highlight-time">1 day ago</p>
-                                </div>
-                            </a>
-                        </li>
-                        -->
-                    </ul>
+                    
+                    <table class="table">
+                                
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Genres</th>
+                                        <th>Description</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for band in bands %}
+                                        <tr>
+                                            <td>{{band.name}}</td>
+                                            <td>{{band.genres}}</td>
+                                            <td>{{band.description}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                    
+                    
                 </div>
             </div>
         </div>

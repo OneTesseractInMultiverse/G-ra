@@ -1,6 +1,10 @@
 from gora import app
-
-from flask_login import login_user, login_required
+from gora.security.iam import get_user_by_username
+from gora.models.graph import (
+    Band, 
+    User
+)
+from flask_login import login_user, login_required, current_user
 from flask import jsonify, request, render_template
 
 
@@ -15,8 +19,13 @@ def get_dashboard_root():
         authenticated.
         :return: Status response json
     """
+    
+    user = get_user_by_username(current_user.username)
+    bands = user.bands.all()
+    
     return render_template(
-        "dashboard/index.html"
+        "dashboard/index.html",
+        bands=bands
     )
     
     
